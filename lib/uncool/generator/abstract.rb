@@ -2,7 +2,7 @@ require 'uncool/unit'
 
 module Uncool
 
-  # Lemon generator base class.
+  # Generator base class.
   class GeneratorAbstract
 
     def initialize(options={})
