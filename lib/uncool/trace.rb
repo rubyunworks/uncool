@@ -17,7 +17,7 @@ module Uncool
 
     #
     def initialize(targets, options={})
-      @targets = targets.empty? ? nil : targets
+      @targets = [targets].compact.flatten
       @options = options
       @log = []
     end
@@ -37,7 +37,7 @@ module Uncool
 
     #
     def target?(mod)
-      return true if targets.nil?
+      return true if targets.empty?
       targets.find do |target|
         begin
           target_class = eval(target, TOPLEVEL_BINDING) #Object.const_get(target)

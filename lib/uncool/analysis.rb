@@ -29,8 +29,13 @@ module Uncool
       @private
     end
 
-    # Return a list of units that were covered.
+    # Returns a list of postive and negative coverage.
     def coverage
+      covered | checklist
+    end
+
+    # Return a list of units that were covered.
+    def covered
       @coverage ||= (
         list = []
         log.each do |object, method|
