@@ -1,0 +1,10 @@
+= RELEASE HISTORY
+
+== 1.0.0 / 2010-08-10
+
+Yea, wee a new test coveragte tool!
+
+Changes:
+
+* Rapidly coded first version.
+

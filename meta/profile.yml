@@ -1,0 +1,18 @@
+--- 
+title  : Uncool
+suite  : proutils
+summary: Unit Test Coverage Tool
+authors: Thomas Sawyer
+contact: trans <transfire@gmail.com>
+license: Apache 2.0
+
+description:
+  Uncool is a unit testing coverage tool that monitors tests
+  recording all the methods covered for the tarageted namespaces.
+  
+resources:
+  home: http://proutils.github.com/uncool
+  repo: git://github.com/proutils/uncool.git
+
+copyright: Copyright 2009 Thomas Sawyer
+

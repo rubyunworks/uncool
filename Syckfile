@@ -1,0 +1,75 @@
+---
+email:
+  service : Email
+  file    : ~
+  subject : ~
+  mailto  : 
+    - ruby-talk@ruby-lang.org
+    - proutils@googlegroups.com
+  parts   : [readme]
+  active  : true
+
+gemcutter:
+  active: true
+
+grancher:
+  service: Grancher
+  active: true
+
+box:
+  service: Box
+  types  : [gem]
+  active : true
+
+dnote:
+  service  : DNote
+  loadpath : ~
+  labels   : ~
+  output   : ~
+  active   : true
+
+ridoc:
+  service: RIDoc
+  output : ri
+  include: ~
+  exclude: ~
+  ignore : ~
+  active : true
+
+rdoc:
+  template: newfish
+  output: site/doc/api
+  exclude: [Syckfile]
+  active: true  
+
+stats:
+  service  : Stats
+  title    : ~
+  loadpath : ~
+  exclude  : ~
+  output   : ~
+  active   : true
+
+testrb:
+  service  : Testrb
+  tests    : ~
+  exclude  : ~
+  loadpath : ~
+  requires : ~
+  live     : false   
+  active   : false
+
+vclog:
+  service  : VClog
+  format   : html   # xml, txt
+  layout   : rel    # gnu
+  typed    : false
+  output   : ~
+  active   : false
+
+syntax:
+  service  : Syntax
+  loadpath : ~
+  exclude  : ~
+  active   : false
+

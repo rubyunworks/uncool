@@ -1,0 +1,90 @@
+= Uncool
+
+= DESCRIPTION
+
+Uncool is unit test coverage tool. Units, just to be absoluately clear,
+are methods. So Uncool montiors you test execution and records the methods
+called aganist target classes.
+
+
+= RESOURCES
+
+* home: http://protuils.github.com/uncool
+* code: http://github.com/proutils/uncool
+* talk: http://groups.google.com/group/proutils
+
+
+= SYNOPSIS
+
+Uncool works by setting up a #set_trace_func procedure that records
+all method calls made against a target set of classes. In Uncool parlance
+the methods are called _units_ and the classes are called _targets_ or
+_namespaces_.
+
+Uncool provides a command-line tool called `uncool-ruby`, which can be
+used to get a coverage report on any Ruby script(s).
+
+    $ uncool-ruby script.rb
+
+The command-line tool is useful in limited cases. More useful it the ability
+to require 'uncool', and based on environment variables, uncool will
+setup logging automatically. This is especailly useful for running uncool with
+various test frameworks, as long as they support an `-r` require option.
+
+For example, here is how we could run a KO![http://proutils.github.com/ko]
+test with Uncool coverage.
+
+    ns=Example ko -runcool test/features/example_feature.rb
+
+Where `ns` is the environment variable for setting the targert "namespaces".
+More than one namespace can be given by separating them with commas. By default
+the coverage report will output to `$stdout`. To log the results to disc provide
+the output directory via the `out` environment variable.
+
+    out=log ns=Example ko -runcool test/features/example_feature.rb
+
+This example would then save the output as html under `log/uncool/index.html`.
+
+To setup "profiles" for different uncool runs, you could simply create
+ruby script(s) that set these environment variables.
+
+    # config/uncool.rb
+    ENV['out'] = 'log'
+    ENV['ns']  = 'Example'
+
+Then require that file first.
+
+    $ ko -r./config/uncool.rb -runcool test/features/dummy_feature.rb
+
+Other ways to utilize Uncool for your tests is to invoke the Uncool logger in
+your test helper script.
+
+    # test/test_helper.rb
+    require 'uncool/log'
+    Uncool.log(:output=>'log', :namespaces=>['Example'])
+
+Of course, this will run the Uncool logger exvery time you run a test.
+
+As an alternative you might be able to write your own special runner. For
+instance, with the KO! test framework a special runner command can be written
+as easily as:
+
+    # script/test_with_uncool
+
+    require 'uncool/log'
+    Uncool.log(:output=>'log', :namespaces=>['Example'])
+
+    require 'ko/cli'
+    KO::CLI.run(ARGV)
+
+Then use this script to run tests instead. This provides the most flexability
+too because the script could also pre-processes ARGV to pull out any special
+options for Uncool that we might like to use.
+
+
+= LEGAL
+
+(Apache 2.0 License)
+
+Copyright (c) 2010 Thomas Sawyer
+

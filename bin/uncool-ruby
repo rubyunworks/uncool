@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require 'uncool/cli'
+Uncool::CLI.run(ARGV)
