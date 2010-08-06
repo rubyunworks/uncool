@@ -29,10 +29,11 @@ module Uncool
     #
     def save(logpath)
       require 'fileutils'
-      dir  = File.join(logpath, 'lemon')
+      dir  = File.join(logpath, 'uncool')
       file = File.join(dir, 'index.html')
       FileUtils.mkdir_p(dir)
       File.open(file, 'w'){ |w| w << render }
+      $stderr.puts "Saved Uncool report at #{dir}."
     end
 
     #

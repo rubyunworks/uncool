@@ -1,8 +1,8 @@
 <html>
 <head>
-  <title>Lemon Coverage Report</title>
+  <title>Uncool Coverage Report</title>
   <style>
-    body{background:#221; margin: 0; padding: 0; color: yellow;}
+    body{background:#DDDDFF; margin: 0; padding: 0; color: #111133;}
     #main{
       width:600px; margin:0 auto;
     }
@@ -19,18 +19,18 @@
 </head>
 <body>
 <div id="main">
-  Lemon
+  Uncool
   <div id="list">
-    <h1>Lemon Coverage Report</h1>
-    <% chart.sort.each do |(unit, yes)| %>
-      <% if yes %>
+    <h1>Uncool Coverage Report</h1>
+    <% coverage.sort.each do |unit| %>
+      <% if unit.covered? %>
         <div class="green"><%= unit.to_s %></div>
       <% else %>
         <div class="red"><%= unit.to_s %></div>
       <% end %>
     <% end %>
   </div>
-  Lemon (c) 2010 Thomas Sawyer
+  Produced by <a href="http://proutils.github.com/uncool">Uncool</a> (c) 2010 Thomas Sawyer
 </div>
 </body>
 </html>
