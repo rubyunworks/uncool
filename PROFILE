@@ -1,9 +1,10 @@
 --- 
 title  : Uncool
-suite  : proutils
+version: 1.0.1
 summary: Unit Test Coverage Tool
 authors: Thomas Sawyer
 contact: trans <transfire@gmail.com>
+suite  : RubyWorks
 license: Apache 2.0
 
 description:
@@ -14,5 +15,13 @@ resources:
   home: http://proutils.github.com/uncool
   repo: git://github.com/proutils/uncool.git
 
+requires:
+  - tracepoint 1.2+
+  - ansi
+  - syckle (build)
+  - box    (build)
+  - ko     (test)
+
 copyright: Copyright 2009 Thomas Sawyer
+
 
